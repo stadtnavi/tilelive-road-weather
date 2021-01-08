@@ -3,7 +3,15 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "airTemperatureC": 4.1,
+        "roadTemperatureC": -1.1,
+        "precipitationType": "LightSnowSleet",
+        "roadCondition": [
+          "Moist",
+          "Salty"
+        ]
+      },
       "geometry": {
         "type": "Point",
         "coordinates": [

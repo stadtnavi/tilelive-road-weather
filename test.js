@@ -1,23 +1,11 @@
 const fs = require("fs");
 const assert = require("assert");
-const { cifsToGeoJson } = require("./index");
-const CifsSource = require("./index");
+const WeatherSource = require("./index");
 
-describe("CifsSource", function() {
-  it("convert to GeoJSON", () => {
-    const data = fs.readFileSync('cifs/herrenberg.cifs.json', 'utf8')
-    const json = JSON.parse(data);
-
-    assert(json.incidents.length == 6);
-
-    const geoJson = cifsToGeoJson(json);
-    fs.writeFileSync("cifs/herrenberg.geojson", JSON.stringify(geoJson, null, 2));
-  });
+describe("WeatherSource", function() {
 
   it("fetch data", (done) => {
-    const url = "https://raw.githubusercontent.com/stadtnavi/tilelive-cifs/main/cifs/herrenberg.cifs.json";
-    const source = new CifsSource(url, () => {});
-    source.url = url;
+    const source = new WeatherSource(null, () => {});
     assert.ok(source);
 
     // request tile in Herrenberg
