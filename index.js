@@ -78,7 +78,7 @@ class WeatherSource {
       tile = { features: [] };
     }
 
-    const data = Buffer.from(vtPbf.fromGeojsonVt({ roadweather: tile }));
+    const data = Buffer.from(vtPbf.fromGeojsonVt({ weatherstations: tile }));
 
     zlib.gzip(data, function(err, buffer) {
       if (err) {
@@ -97,7 +97,7 @@ class WeatherSource {
       vector_layers: [
         {
           description: "Roadworks data retrieved from a GeoJSON source",
-          id: "roadweather"
+          id: "weatherstations"
         }
       ]
     });
@@ -107,6 +107,6 @@ class WeatherSource {
 module.exports = WeatherSource;
 
 module.exports.registerProtocols = tilelive => {
-  tilelive.protocols["roadweather:"] = WeatherSource;
+  tilelive.protocols["weatherstations:"] = WeatherSource;
 };
 
