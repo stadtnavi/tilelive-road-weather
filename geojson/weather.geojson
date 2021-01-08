@@ -7,11 +7,8 @@
         "address": "Schießtäle, Herrenberg",
         "airTemperatureC": 4.1,
         "roadTemperatureC": -1.1,
-        "precipitationType": "LightSnowSleet",
-        "roadCondition": [
-          "Moist",
-          "Salty"
-        ],
+        "precipitationType": 70,
+        "roadCondition": 10,
         "updatedAt": "2021-01-08T12:05:17+02:00"
       },
       "geometry": {
