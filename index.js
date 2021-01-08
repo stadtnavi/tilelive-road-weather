@@ -24,10 +24,22 @@ const getGeoJson = (url, callback) => {
         callback(err);
         return;
       }
-      callback(null, JSON.parse(body));
+      callback(null, stringifyArrays(JSON.parse(body)));
     }
   );
 };
+
+const stringifyArrays = (geoJson) => {
+  geoJson.features.forEach( feature => {
+    Object.keys(feature.properties).forEach(key => {
+      const value = feature.properties[key];
+      if(_.isArray(value)) {
+        feature.properties[key] = value.join(",");
+      }
+    });
+  });
+  return geoJson;
+}
 
 class WeatherSource {
   constructor(uri, callback) {
