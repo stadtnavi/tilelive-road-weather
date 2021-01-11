@@ -6,7 +6,7 @@ const zlib = require("zlib");
 const NodeCache = require("node-cache" );
 const _ = require("lodash");
 
-const url = process.env.WEATHER_GEOJSON_URL || "https://raw.githubusercontent.com/stadtnavi/tilelive-road-weather/main/geojson/weather.geojson";
+const url = process.env.WEATHER_STATIONS_URL || "https://raw.githubusercontent.com/stadtnavi/tilelive-road-weather/main/geojson/weather.geojson";
 
 const getGeoJson = (url, callback) => {
   request(
